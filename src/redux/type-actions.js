@@ -1,0 +1,7 @@
+export const ADD_RECIPE = "ADD_RECIPE"
+export const FILTER_TYPE_DIET = "FILTER_TYPE_DIET"
+export const FILTER_ORGIN = "FILTER_ORGIN"
+export const RESET_FILTER = "RESET_FILTER"
+export const ORDERBY = "ORDERBY"
+export const GET_RECIPES = "GET_RECIPES"
+export const GET_DIETS = "GET_DIETS"

@@ -1,0 +1,68 @@
+.recipes {
+	display: flex;
+	flex-direction: column;
+	border-radius: 50px;
+	background: linear-gradient(145deg, #89959e3d, #e7196f44);
+	backdrop-filter: blur(5px);
+	border-radius: 1.5em;
+	color: rgb(87, 60, 60);
+	font-family: "Varela Round", sans-serif !important;
+	width: 250px;
+	min-height: 520px;
+	gap: 1em;
+	padding: 25px 25px;
+	text-align: center;
+	position: relative;
+	transition: all 0.2s ease-in-out;
+	box-shadow: 0px 12px 31px -7px rgba(0, 0, 0, 1);
+	-webkit-box-shadow: 0px 12px 31px -7px rgba(0, 0, 0, 1);
+}
+
+.recipes:hover {
+	transform: scale(103%);
+	backdrop-filter: none;
+}
+
+.recipes img {
+	width: 250px;
+	height: 250px;
+	border-radius: 300px;
+	box-shadow: 0px 12px 31px -7px rgba(0, 0, 0, 1);
+	-webkit-box-shadow: 0px 12px 31px -7px rgba(0, 0, 0, 1);
+}
+
+.info h2 {
+	font-family: "Varela Round", sans-serif !important;
+	font-size: 18px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+}
+
+.diets p {
+	color: white;
+	display: flex;
+	gap: 0.3em;
+	width: 100%;
+	flex-flow: row wrap;
+}
+
+.diets span {
+	overflow: hidden;
+	transition: all 0.5s ease-in-out;
+	position: relative;
+	z-index: 99;
+	font-size: 0.85em;
+	padding: 0.4em 0.6em;
+	border-radius: 0.4em;
+	background-color: #e2131d8c !important;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.diets:hover {
+	height: auto;
+}
