@@ -9,11 +9,14 @@ export default function Detail() {
   const [recipeDetail, setRecipeDetail] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(async () => {
-    const recipe = await axios(`/recipes/${detailId}`);
-    const recipeDet = recipe.data;
-    setRecipeDetail(recipeDet);
-    setIsLoading(false);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await axios(`/recipes/${detailId}`);
+      const recipeDet = response.data;
+      setRecipeDetail(recipeDet);
+      setIsLoading(false);
+    }
+    fetchData();
   }, [detailId]);
 
   function removerCaracteres(str) {
@@ -30,7 +33,7 @@ export default function Detail() {
           <img src={loading} alt="Loading..." />
         </div>
       ) : (
-        <div >
+        <div>
           <div className={styles.overlay} />
           <div className={styles.title}>
             <h2>{recipeDetail.title}</h2>
@@ -72,7 +75,7 @@ export default function Detail() {
               </ul>
             </div>
             <Link
-              to="/home"
+              to={"/home"}
               className={styles.button}
               style={{ textDecoration: "none" }}
             >
