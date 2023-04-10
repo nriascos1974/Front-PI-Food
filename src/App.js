@@ -6,7 +6,6 @@ import Detail from "./components/DetailRecipe/Detail";
 import NewRecipe from "./components/NewRecipe/NewRecipe";
 import About from "./components/About/About";
 
-
 function App() {
   return (
     <div className="App">

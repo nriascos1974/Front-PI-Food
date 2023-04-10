@@ -221,7 +221,10 @@ function Home() {
                   key={ind}
                 />
               ))
-            : null}
+            : <h2 className={styles.noHayTarjetas}>
+             No hay <br />
+             Delicias Culinarias
+          </h2>}
         </div>
       )}
     </div>

@@ -4,6 +4,7 @@ import {
   FILTER_ORGIN,
   ORDERBY,
   GET_RECIPES,
+  GET_RECIPES_NAME,
   GET_DIETS,
   RESET_FILTER,
 } from "./type-actions";
@@ -46,7 +47,7 @@ export const getRecipesName = (name) => {
         `/recipes?name=${name}`
       );
       return dispatch({
-        type: GET_RECIPES,
+        type: GET_RECIPES_NAME,
         payload: response.data,
       });
     } catch (error) {

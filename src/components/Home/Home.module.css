@@ -30,6 +30,15 @@
 	object-fit: cover;
 }
 
+
+.noHayTarjetas {
+	font-family: "Playfair Display", serif;
+	color: white;
+	font-size: 6em;
+	line-height: 1em;
+}
+
+
 .Nav {
 	display: flex;
 	border-radius: 10px;

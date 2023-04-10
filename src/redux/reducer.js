@@ -4,6 +4,7 @@ import {
   FILTER_ORGIN,
   ORDERBY,
   GET_RECIPES,
+  GET_RECIPES_NAME,
   GET_DIETS,
   RESET_FILTER,
 } from "./type-actions";
@@ -70,6 +71,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         recipes: action.payload,
         allRecipes: action.payload,
+      };
+    case GET_RECIPES_NAME:
+
+      return {
+        ...state,
+        recipes: action.payload,
       };
     case RESET_FILTER:
 
