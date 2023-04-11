@@ -50,23 +50,29 @@ const reducer = (state = initialState, action) => {
       };
 
     case ORDERBY:
-      let orderRecipes = [...state.allRecipes];
+      let orderRecipes = [...state.recipes];
+      let orderAllRecipes = [...state.allRecipes];
       if (action.payload === "a-z") {
         orderRecipes.sort((a, b) => a.title.localeCompare(b.title));
+        orderAllRecipes.sort((a, b) => a.title.localeCompare(b.title));
       } else if (action.payload === "z-a") {
         orderRecipes.sort((a, b) => b.title.localeCompare(a.title));
+        orderAllRecipes.sort((a, b) => b.title.localeCompare(a.title));
       } else if (action.payload === "1-9") {
         orderRecipes.sort((a, b) => a.healthScore - b.healthScore);
+        orderAllRecipes.sort((a, b) => a.healthScore - b.healthScore);
       } else if (action.payload === "9-1") {
         orderRecipes.sort((a, b) => b.healthScore - a.healthScore);
+        orderAllRecipes.sort((a, b) => b.healthScore - a.healthScore);
       } else {
         orderRecipes = state.allRecipes;
+        orderAllRecipes = state.allRecipes;
       }
 
       return {
         ...state,
         recipes: orderRecipes,
-        allRecipes:orderRecipes,
+        allRecipes:orderAllRecipes,
       };
 
     case GET_RECIPES:
