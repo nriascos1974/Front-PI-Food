@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import * as actions from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./NewRecipe.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //*Funcion para validar los inputs que reciben informacion del usuario
 function validate(recipe) {
@@ -28,6 +28,7 @@ function NewRecipe() {
   const formRef = useRef(null); //*Hook para referencia el form
   const dispatch = useDispatch();
   const allDiets = useSelector((state) => state.typeDiets);
+  const navigate = useNavigate();
   const [stepDescription, setStepDescription] = useState("");
   const [errors, setErrors] = useState({});
   const [recipe, setRecipe] = useState({
@@ -87,10 +88,10 @@ function NewRecipe() {
       recipe.steps.length &&
       !Object.keys(errors).length
     ) {
-      console.log(recipe)
-      dispatch(actions.addRecipe(recipe));
+      dispatch(actions.addRecipe(recipe)).then(() => {
+        navigate(`/detail`);
+      });
 
-      alert("Recipe successfully Created");
       setRecipe({
         title: "",
         summary: "",

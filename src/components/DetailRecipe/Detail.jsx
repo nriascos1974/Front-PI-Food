@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Detail.module.css";
 import loading from "../../images/loading.gif";
-import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 export default function Detail() {
-  const { detailId } = useParams();
-  const [recipeDetail, setRecipeDetail] = useState({});
+  const recipeDet = useSelector((state) => state.newRecipes)
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await axios(`/recipes/${detailId}`);
-      const recipeDet = response.data;
-      setRecipeDetail(recipeDet);
-      setIsLoading(false);
-    }
-    fetchData();
-  }, [detailId]);
+    setIsLoading(false);
+  }, []);
 
   function removerCaracteres(str) {
     if (str === null || str === "") return false;
@@ -36,7 +30,7 @@ export default function Detail() {
         <div>
           <div className={styles.overlay} />
           <div className={styles.title}>
-            <h2>{recipeDetail.title}</h2>
+            <h2>{recipeDet.title}</h2>
           </div>
 
           <div className={styles.recipeDetail}>
@@ -44,30 +38,30 @@ export default function Detail() {
               <div className={styles.infoContainer}>
                 <div className={styles.diets}>
                   <p id={styles.diets}>
-                    {recipeDetail.diets &&
-                      recipeDetail.diets.map((diet, ind) => (
+                    {recipeDet.diets &&
+                      recipeDet.diets.map((diet, ind) => (
                         <span key={ind} className={styles.span}>
                           {diet.name}
                         </span>
                       ))}
                   </p>
                 </div>
-                <p>ID: {recipeDetail.id}</p>
+                <p>ID: {recipeDet.id}</p>
                 <p>
-                  {recipeDetail.summary &&
-                    removerCaracteres(recipeDetail.summary)}
+                  {recipeDet.summary &&
+                    removerCaracteres(recipeDet.summary)}
                 </p>
-                <p>Health Score: {recipeDetail.healthScore}</p>
+                <p>Health Score: {recipeDet.healthScore}</p>
               </div>
               <div className={styles.img}>
-                <img src={recipeDetail.image} alt="" />
+                <img src={recipeDet.image} alt="" />
               </div>
             </div>
             <h2>Steps:</h2>
             <div className={styles.listSteps}>
               <ul>
-                {recipeDetail.steps &&
-                  recipeDetail.steps.map((x, index) => (
+                {recipeDet.steps &&
+                  recipeDet.steps.map((x, index) => (
                     <li key={index}>
                       {x.number}: {x.step}
                     </li>

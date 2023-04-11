@@ -4,6 +4,8 @@ import {
   FILTER_ORGIN,
   ORDERBY,
   GET_RECIPES,
+  GET_RECIPES_DETAIL,
+  SET_RECIPE_CLEAN,
   GET_RECIPES_NAME,
   GET_DIETS,
   RESET_FILTER,
@@ -40,6 +42,16 @@ export const getRecipes = () => {
   };
 };
 
+export const getRecipeDetail = (detailId) => {
+  return async (dispatch) => {
+    const response = await axios(`/recipes/${detailId}`);
+    return dispatch({
+      type: GET_RECIPES_DETAIL,
+      payload: response.data,
+    });
+  };
+};
+
 export const getRecipesName = (name) => {
   return async (dispatch) => {
     try {
@@ -51,7 +63,9 @@ export const getRecipesName = (name) => {
         payload: response.data,
       });
     } catch (error) {
-      alert("Recipe not found");
+      dispatch({
+        type: SET_RECIPE_CLEAN,
+      });
     }
   };
 };

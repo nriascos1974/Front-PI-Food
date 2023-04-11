@@ -4,6 +4,8 @@ import {
   FILTER_ORGIN,
   ORDERBY,
   GET_RECIPES,
+  GET_RECIPES_DETAIL,
+  SET_RECIPE_CLEAN,
   GET_RECIPES_NAME,
   GET_DIETS,
   RESET_FILTER,
@@ -13,6 +15,7 @@ const initialState = {
   recipes: [],
   allRecipes: [],
   typeDiets: [],
+  newRecipes: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -63,6 +66,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         recipes: orderRecipes,
+        allRecipes:orderRecipes,
       };
 
     case GET_RECIPES:
@@ -71,6 +75,18 @@ const reducer = (state = initialState, action) => {
         ...state,
         recipes: action.payload,
         allRecipes: action.payload,
+      };
+    case GET_RECIPES_DETAIL:
+
+      return {
+        ...state,
+        newRecipes: action.payload,
+      };
+    case SET_RECIPE_CLEAN:
+
+      return {
+        ...state,
+        recipes: [],
       };
     case GET_RECIPES_NAME:
 
@@ -98,6 +114,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         recipes: [...state.recipes, action.payload],
         allRecipes: [...state.allRecipes, action.payload],
+        newRecipes: action.payload,
       };
 
     default:

@@ -38,6 +38,11 @@
 	line-height: 1em;
 }
 
+.linkHome{
+	margin-right: auto;
+	padding-right:1px;
+}
+
 
 .Nav {
 	display: flex;
@@ -46,8 +51,13 @@
 	width: 98%;
 	padding: 15px;
 	bottom: 15px;
-	height: 80px;
+	height: 80%;
 	background-color: rgba(230, 46, 159, 0.521);
+  }
+
+  .searchBar{
+	display: flex;
+	flex-wrap: wrap;
   }
   
   .navLink {
@@ -121,9 +131,32 @@
 	font-size: 20px;
 }
 
+.btnPageActive {
+	background-image: linear-gradient(109.6deg, #f55b22 40%, #f9351a 70%);
+    border-color: #ff0000;
+	color: rgb(180, 145, 145);
+	font-weight: bold;
+	cursor: pointer;
+    border-radius: 0.5em;
+	font-size: 20px;
+}
+
+
 
 @media (max-width: 900px) {
 		.recipesContainer {
 		justify-content: space-around;
 	}
 }
+
+@media (max-width: 768px) {
+	.pageBtnContainer {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	}
+  
+	.btnPage {
+	  margin: 0.5rem;
+	}
+  }

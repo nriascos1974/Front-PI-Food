@@ -21,7 +21,7 @@ function Home() {
 
   function handlePageClick(page) {
     setCurrentPage(page);
-  }
+   }
 
   useEffect(() => {
     dispatch(actions.getRecipes()).then(() => setIsLoading(false));
@@ -55,20 +55,20 @@ function Home() {
   function HandlerOrderByName(e) {
     e.preventDefault();
     dispatch(actions.orderCards(e.target.value));
-     setCurrentPage(1);
+    setCurrentPage(1);
   }
 
   function HandlerOrderByHealth(e) {
     e.preventDefault();
     dispatch(actions.orderCards(e.target.value));
-     setCurrentPage(1);
+    setCurrentPage(1);
   }
 
   return (
     <div className={styles.background}>
       <nav className={styles.Nav}>
         <div className={styles.navLink}>
-          <div className="linkHome">
+          <div className={styles.linkHome}>
             <Link
               to="/recipe"
               className={({ isActive }) =>
@@ -101,8 +101,9 @@ function Home() {
                 Logout
               </button>
             </Link>
+            <SearchBar />
           </div>
-          <SearchBar />
+
           <div>
             <div>
               <button
@@ -186,7 +187,7 @@ function Home() {
             <button
               key={index}
               onClick={() => handlePageClick(index + 1)}
-              className={styles.btnPage}
+              className={`${currentPage === index + 1 ? styles.btnPageActive : styles.btnPage}`}
             >
               {index + 1}
             </button>
@@ -210,21 +211,23 @@ function Home() {
         </div>
       ) : (
         <div className={styles.recipesContainer}>
-          {allRecipes.length
-            ? currentRecipe.map((rec, ind) => (
-                <Card
-                  image={rec.image}
-                  title={rec.title}
-                  diets={rec.diets}
-                  healthScore={rec.healthScore}
-                  id={rec.id}
-                  key={ind}
-                />
-              ))
-            : <h2 className={styles.noHayTarjetas}>
-             No hay <br />
-             Delicias Culinarias
-          </h2>}
+          {allRecipes.length ? (
+            currentRecipe.map((rec, ind) => (
+              <Card
+                image={rec.image}
+                title={rec.title}
+                diets={rec.diets}
+                healthScore={rec.healthScore}
+                id={rec.id}
+                key={ind}
+              />
+            ))
+          ) : (
+            <h2 className={styles.noHayTarjetas}>
+              No hay <br />
+              Delicias Culinarias
+            </h2>
+          )}
         </div>
       )}
     </div>
