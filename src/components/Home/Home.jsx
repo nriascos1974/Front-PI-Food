@@ -121,7 +121,7 @@ function Home() {
                 onChange={(e) => HandlerOrderByName(e)}
                 className={styles.input}
               >
-                <option>Order by Title</option>
+                <option disabled >Order by Title</option>
                 <option value="a-z">Title (A-Z)</option>
                 <option value="z-a">Title (Z-A)</option>
               </select>
@@ -131,7 +131,7 @@ function Home() {
                 onChange={(e) => HandlerOrderByHealth(e)}
                 className={styles.input}
               >
-                <option>Order by Health Score</option>
+                <option disabled>Order by Health Score</option>
                 <option value="1-9">Ascending Health Score</option>
                 <option value="9-1">Descending Health Score</option>
               </select>
@@ -141,7 +141,7 @@ function Home() {
                 onChange={(e) => handlerFilteredByDiets(e)}
                 className={styles.input}
               >
-                <option>Filter by Type Diet</option>
+                <option disabled>Filter by Type Diet</option>
                 <option value="All">(All Recipes)</option>
                 <option value="gluten free">Gluten free</option>
                 <option value='dairy free"'>Dairy free</option>
@@ -162,7 +162,7 @@ function Home() {
                 onChange={(e) => handlerFilteredCreated(e)}
                 className={styles.input}
               >
-                <option>Filter by Origin</option>
+                <option disabled >Filter by Origin</option>
                 <option value="All">(All)</option>
                 <option value="Db">Created</option>
                 <option value="Api">API</option>
