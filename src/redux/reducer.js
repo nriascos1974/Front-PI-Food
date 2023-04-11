@@ -50,7 +50,7 @@ const reducer = (state = initialState, action) => {
       };
 
     case ORDERBY:
-      let orderRecipes = [...state.recipes];
+      let orderRecipes = [...state.allRecipes];
       if (action.payload === "a-z") {
         orderRecipes.sort((a, b) => a.title.localeCompare(b.title));
       } else if (action.payload === "z-a") {
