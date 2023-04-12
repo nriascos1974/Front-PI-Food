@@ -80,46 +80,39 @@ function NewRecipe() {
 
     setErrors(validate(recipe));
 
-    if (
-      recipe.title &&
-      recipe.summary &&
-      recipe.image &&
-      recipe.diets.length &&
-      recipe.steps.length &&
-      !Object.keys(errors).length
-    ) {
-      dispatch(actions.addRecipe(recipe)).then(() => {
-        navigate(`/detail`);
-      });
+    dispatch(actions.addRecipe(recipe)).then(() => {
+      navigate(`/detail`);
+    });
 
-      setRecipe({
-        title: "",
-        summary: "",
-        healthScore: 50,
-        image: "",
-        steps: [],
-        diets: [],
-        numSteps: 0,
-      });
-      formRef.current.reset();
-    } else {
-      alert("All fields are required");
-    }
+    setRecipe({
+      title: "",
+      summary: "",
+      healthScore: 50,
+      image: "",
+      steps: [],
+      diets: [],
+      numSteps: 0,
+    });
+    formRef.current.reset();
   };
 
+  //* FUNCION PARA LISPIAR LOS PASOS QUE SE HAYAN INGRESADO (CLEAN)
   const handleDelete = (e) => {
     console.log(e.target.value);
     e.preventDefault();
     setRecipe({
       ...recipe,
       steps: [],
+      numSteps: 0,
     });
   };
 
+  //*FUNCION PARA CAPTURAR LO TIPEADO EN EL PASO A PASO
   function handleChangeStep(e) {
     setStepDescription(e.target.value);
   }
 
+  //*FUNCION PARA ADICIONAR LOS PASOS A PASO DE LA RECETA
   function handleStep(e) {
     e.preventDefault();
     if (stepDescription !== "") {
@@ -263,7 +256,23 @@ function NewRecipe() {
             })}
           </div>
 
-          <button type="submit" className={styles.buttonForm}>
+          <button
+            type="submit"
+            className={
+              recipe.diets.length &&
+              recipe.steps.length &&
+              !Object.keys(errors).length
+                ? styles.buttonForm
+                : styles.buttonFormEnabled
+            }
+            disabled={
+              recipe.diets.length &&
+              recipe.steps.length &&
+              !Object.keys(errors).length
+                ? false
+                : true
+            }
+          >
             Create Recipe
           </button>
         </form>

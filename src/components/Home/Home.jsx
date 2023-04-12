@@ -120,8 +120,9 @@ function Home() {
                 id="orderByName"
                 onChange={(e) => HandlerOrderByName(e)}
                 className={styles.input}
+                defaultValue="0"
               >
-                <option disabled >Order by Title</option>
+                <option disabled value="0" >Order by Title</option>
                 <option value="a-z">Title (A-Z)</option>
                 <option value="z-a">Title (Z-A)</option>
               </select>
@@ -130,8 +131,9 @@ function Home() {
                 id="orderByHealth"
                 onChange={(e) => HandlerOrderByHealth(e)}
                 className={styles.input}
+                defaultValue="0"
               >
-                <option disabled>Order by Health Score</option>
+                <option disabled value="0">Order by Health Score</option>
                 <option value="1-9">Ascending Health Score</option>
                 <option value="9-1">Descending Health Score</option>
               </select>
@@ -140,8 +142,9 @@ function Home() {
                 id="filteredByDiets"
                 onChange={(e) => handlerFilteredByDiets(e)}
                 className={styles.input}
+                defaultValue="0"
               >
-                <option disabled>Filter by Type Diet</option>
+                <option disabled value="0">Filter by Type Diet</option>
                 <option value="All">(All Recipes)</option>
                 <option value="gluten free">Gluten free</option>
                 <option value='dairy free"'>Dairy free</option>
@@ -161,8 +164,9 @@ function Home() {
                 id="filteredCreated"
                 onChange={(e) => handlerFilteredCreated(e)}
                 className={styles.input}
+                defaultValue="0"
               >
-                <option disabled >Filter by Origin</option>
+                <option disabled value="0" >Filter by Origin</option>
                 <option value="All">(All)</option>
                 <option value="Db">Created</option>
                 <option value="Api">API</option>
