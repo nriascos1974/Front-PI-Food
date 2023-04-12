@@ -24,6 +24,7 @@ function Home() {
    }
 
   useEffect(() => {
+    console.log("Home useEffect")
     dispatch(actions.getRecipes()).then(() => setIsLoading(false));
   }, [dispatch]);
 

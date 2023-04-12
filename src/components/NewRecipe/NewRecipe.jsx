@@ -192,6 +192,7 @@ function NewRecipe() {
               value={recipe.healthScore}
               name="healthScore"
               onChange={handleChange}
+              id="range-input"
             />
             <output id="rangevalue">{recipe.healthScore}</output>
           </div>

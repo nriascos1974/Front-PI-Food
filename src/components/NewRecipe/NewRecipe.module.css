@@ -238,3 +238,23 @@
     color: rgb(180, 21, 21);
     background-color: aliceblue;
   }
+
+  input[type=range] {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 10px;
+	background:#ff6904b9;
+	outline: none;
+	border-radius: 5px;
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	background: #f02106;
+	cursor: pointer;
+	border-radius: 50%;
+  }
