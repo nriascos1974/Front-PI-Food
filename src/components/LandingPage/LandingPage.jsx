@@ -16,9 +16,9 @@ export default function LandingPage() {
           <img src={foto} alt="" />
           <span>By Nestor Jair Riasco M.</span>
         </div>
-        <p>
+        {/* <p>
           <img src={henry} alt="" />
-        </p>
+        </p> */}
         <Link to="/home" style={{ textDecoration: 'none' }} >
         <button  className={styles.Button}><strong>Go to the main page</strong> </button>
         </Link>

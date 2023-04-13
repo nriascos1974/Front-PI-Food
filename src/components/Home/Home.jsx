@@ -17,7 +17,7 @@ function Home() {
   const pageCount = Math.ceil(allRecipes.length / pageSize);
   const indexOfLastRecipe = currentPage * pageSize; //en un principio sera 9
   const indexOfFirstRecipe = indexOfLastRecipe - pageSize;
-  const currentRecipe = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe); //te divide un array dependiendo lo que este pasando por parametro
+  const currentRecipe = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe); //*voy porcionando la informacion de acuerdo al numero de elementos que quiera definir por pagina
 
   function handlePageClick(page) {
     setCurrentPage(page);
